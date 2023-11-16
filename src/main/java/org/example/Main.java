@@ -1,5 +1,8 @@
 package org.example;
-
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.appium.java_client.AppiumDriver;
 import org.junit.After;
 import org.junit.Before;
@@ -17,6 +20,9 @@ public class Main {
     private final String platformVersion;
     private final String udid;
     private final TestScenario testScenario;
+
+    private ExtentReports extent;
+    private ExtentTest extentTest;
 
     public enum TestScenario {
         INITIATE_CALL,
@@ -39,7 +45,15 @@ public class Main {
 
     @Before
     public void setUp() throws MalformedURLException {
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("results123/extent-report.html");
+        extent = new ExtentReports();
+        extent.attachReporter(sparkReporter);
+
         driver = AppiumTest.getDriver(platformVersion, udid);
+//        driver = null;
+
+        extentTest = extent.createTest(testScenario.name());
+
     }
 
     @Test
@@ -60,8 +74,13 @@ public class Main {
 
     @After
     public void tearDown() {
+        if (driver == null) {
+            extentTest.log(Status.FAIL, "Test failed");
+        }
         if (driver != null) {
             driver.quit();
         }
+        extent.flush();
+
     }
 }
