@@ -12,7 +12,6 @@ public class AppiumTest {
     public static AppiumDriver getDriver(String platformVersion, String udid) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        // Set your desired capabilities here
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("deviceName", udid);

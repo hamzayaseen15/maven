@@ -25,11 +25,9 @@ public class Main {
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        // Provide parameters for each device and test scenario
         return Arrays.asList(new Object[][] {
                 {"7.0", "R38GA09C3CW", TestScenario.INITIATE_CALL},
 //                {"device_version_2", "device_udid_2", TestScenario.RECEIVE_CALL},
-                // Add more devices and scenarios as needed
         });
     }
 
@@ -41,7 +39,6 @@ public class Main {
 
     @Before
     public void setUp() throws MalformedURLException {
-        // Initialize the driver using AppiumTest
         driver = AppiumTest.getDriver(platformVersion, udid);
     }
 
@@ -49,13 +46,11 @@ public class Main {
     public void myTest() {
         switch (testScenario) {
             case INITIATE_CALL:
-                // Implement steps to initiate a call
-                // E.g., click on the call button, select contact, etc.
+
                 break;
 
             case RECEIVE_CALL:
-                // Implement steps to receive a call
-                // E.g., wait for incoming call notification, answer the call, etc.
+
                 break;
 
             default:
