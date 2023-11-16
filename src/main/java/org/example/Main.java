@@ -27,8 +27,8 @@ public class Main {
     public static Collection<Object[]> data() {
         // Provide parameters for each device and test scenario
         return Arrays.asList(new Object[][] {
-                {"device_version_1", "device_udid_1", TestScenario.INITIATE_CALL},
-                {"device_version_2", "device_udid_2", TestScenario.RECEIVE_CALL},
+                {"7.0", "R38GA09C3CW", TestScenario.INITIATE_CALL},
+//                {"device_version_2", "device_udid_2", TestScenario.RECEIVE_CALL},
                 // Add more devices and scenarios as needed
         });
     }

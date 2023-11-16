@@ -15,8 +15,9 @@ public class AppiumTest {
         // Set your desired capabilities here
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("deviceName", "emulator-5554");
         capabilities.setCapability("deviceName", udid);
+        capabilities.setCapability("appPackage", "com.whatsapp");
+        capabilities.setCapability("appActivity", "com.whatsapp.Main");
         capabilities.setCapability("platformVersion", platformVersion);
 
         return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
