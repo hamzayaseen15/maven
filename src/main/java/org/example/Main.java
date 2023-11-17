@@ -75,7 +75,7 @@ public class Main {
     @After
     public void tearDown() {
         if (driver == null) {
-            extentTest.log(Status.FAIL, "Test failed");
+            extentTest.log(Status.FAIL, "Driver Not Found");
         }
         if (driver != null) {
             driver.quit();
